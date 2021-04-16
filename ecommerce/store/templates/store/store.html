@@ -1,0 +1,27 @@
+{% extends 'store/main.html'%}
+
+{% block content %}
+
+  <div class="row">
+    {% for item in items%}
+      <div class="col-lg-4">
+        <div class="thumbnail">
+          <img class="thumbnail" src="{{item.img.url}}" alt="">
+          {% if item.offer %}
+            <div class="spec_offer text-center"><a href="#">special offer</a></div>
+          {% endif %}
+        </div>
+
+      <div class="box-element product">
+        <h6><strong>{{item.name}}</strong></h6>
+        <!-- <h6>{{item.desc}}</h6> -->
+        <h6>no:of pieces {{item.piece}}</h6>
+        <hr>
+        <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+				<a class="btn btn-outline-success" href="productpage/{{item.name}}">View</a>
+				<h4 style="display: inline-block; float: right"><strong>${{item.price}}</strong></h4>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock content %}

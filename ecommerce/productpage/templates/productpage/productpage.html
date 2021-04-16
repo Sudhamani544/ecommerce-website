@@ -1,0 +1,25 @@
+{% extends 'store/main.html'%}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="col-lg-4 align-items:center">
+
+          <img class="thumbnail" src="{{item.img.url}}" alt="">
+    </div>
+          <h1><strong>{{item.name}}</strong></h1>
+          <h3>{{item.desc}}</h3>
+
+          <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+
+
+
+  </body>
+</html>
+{% endblock content %}
