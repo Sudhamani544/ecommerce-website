@@ -3,7 +3,7 @@
 {% block content %}
 
   <div class="row">
-    {% for item in items%}
+    {% for item in object_list%}
       <div class="col-lg-4">
         <div class="thumbnail">
           <img class="thumbnail" src="{{item.img.url}}" alt="">
@@ -18,8 +18,18 @@
         <h6>no:of pieces {{item.piece}}</h6>
         <hr>
         <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
-				<a class="btn btn-outline-success" href="productpage/{{item.name}}">View</a>
-				<h4 style="display: inline-block; float: right"><strong>${{item.price}}</strong></h4>
+				<a class="btn btn-outline-success" href="productpage/{{item.slug}}">View</a>
+				<!-- <h4 style="display: inline-block; float: right"><strong>${{item.price}}</strong></h4> -->
+        {% if item.offer %}
+        <h5 style="display: inline-block; float: right">
+          <span class="mr-1">
+            <del>${{item.price}}</del>
+          </span>
+          <span>${{item.discountprice}}</span>
+        {% else %}
+          <h5 style="display: inline-block; float: right">${{item.price}}</h5>
+        {% endif %}
+        </h5>
       </div>
     </div>
     {% endfor %}
